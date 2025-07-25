@@ -16,12 +16,13 @@
   padding: 0rem 1rem;
 }
 
+.congrat_container,
 .Initial_quiz_container {
   background-color: rgb(183, 158, 207);
   width: 600px;
   min-width: 460px;
   padding: 2rem 0rem;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -154,11 +155,10 @@ h4 {
   width: 600px;
   min-width: 460px;
   padding: 2rem 0rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
   border: 1px solid hsl(203, 19%, 78%);
   border-radius: 16px;
 }

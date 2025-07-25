@@ -1,8 +1,9 @@
-const quizData = [
+const newQuizData = [
   {
-    programming: [
+    category: "programming",
+    questions: [
       {
-        question: "What does HTML stand for?",
+        quest: "What does HTML stand for?",
         answers: [
           "HyperText Markup Language",
           "Home Tool Markup Language",
@@ -12,17 +13,17 @@ const quizData = [
         correct: "HyperText Markup Language",
       },
       {
-        question: "Which language is used for styling web pages?",
+        quest: "Which language is used for styling web pages?",
         answers: ["HTML", "CSS", "Python", "Java"],
         correct: "CSS",
       },
       {
-        question: "Inside which HTML element do we put JavaScript?",
+        quest: "Inside which HTML element do we put JavaScript?",
         answers: ["<script>", "<js>", "<scripting>", "<javascript>"],
         correct: "<script>",
       },
       {
-        question:
+        quest:
           "What is the correct syntax for referring to an external script?",
         answers: [
           "<script src='script.js'>",
@@ -33,17 +34,17 @@ const quizData = [
         correct: "<script src='script.js'>",
       },
       {
-        question: "Which company developed JavaScript?",
+        quest: "Which company developed JavaScript?",
         answers: ["Microsoft", "Netscape", "Sun Microsystems", "IBM"],
         correct: "Netscape",
       },
-      // ➕ Add 10 more to reach 15
     ],
   },
   {
-    psychology: [
+    category: "psychology",
+    questions: [
       {
-        question: "What is cognitive dissonance?",
+        quest: "What is cognitive dissonance?",
         answers: [
           "A brain disorder",
           "The mental discomfort from holding conflicting beliefs",
@@ -53,17 +54,17 @@ const quizData = [
         correct: "The mental discomfort from holding conflicting beliefs",
       },
       {
-        question: "Who is the founder of psychoanalysis?",
+        quest: "Who is the founder of psychoanalysis?",
         answers: ["Sigmund Freud", "Carl Jung", "B.F. Skinner", "Jean Piaget"],
         correct: "Sigmund Freud",
       },
       {
-        question: "Which part of the brain is responsible for memory?",
+        quest: "Which part of the brain is responsible for memory?",
         answers: ["Cerebellum", "Amygdala", "Hippocampus", "Thalamus"],
         correct: "Hippocampus",
       },
       {
-        question: "What is the main focus of behaviorism?",
+        quest: "What is the main focus of behaviorism?",
         answers: [
           "Conscious thoughts",
           "Unconscious drives",
@@ -73,7 +74,7 @@ const quizData = [
         correct: "Observable behavior",
       },
       {
-        question: "Maslow’s hierarchy of needs ends with?",
+        quest: "Maslow’s hierarchy of needs ends with?",
         answers: [
           "Self-esteem",
           "Love and belonging",
@@ -82,8 +83,7 @@ const quizData = [
         ],
         correct: "Self-actualization",
       },
-      // ➕ Add 10 more to reach 15
     ],
   },
 ];
-export default quizData;
+export default newQuizData;
