@@ -21,6 +21,8 @@ categoryChoiceBtn.forEach((btn) => {
       (cat) => cat.category === categoryText
     );
     console.log(userChooseCategory);
+
+    // ui change for selected
     if (userChooseCategory) {
       categoryChoiceBtn.forEach((b) => {
         b.style.backgroundColor = "hsla(180, 100%, 89%, 0.7)";
@@ -28,8 +30,6 @@ categoryChoiceBtn.forEach((btn) => {
       });
       e.target.style.backgroundColor = "hsl(231, 77%, 76%)";
     }
-
-    // ui change for selected
   });
 });
 
