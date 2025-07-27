@@ -2,6 +2,7 @@
 import newQuizData from "./newobj.js";
 
 let userChooseCategory = null;
+let howMany;
 
 //Change HTML category button NodeList to real Array
 const categoryChoiceBtn = new Array(
@@ -20,7 +21,6 @@ categoryChoiceBtn.forEach((btn) => {
     userChooseCategory = newQuizData.find(
       (cat) => cat.category === categoryText
     );
-    console.log(userChooseCategory);
 
     // ui change for selected
     if (userChooseCategory) {
@@ -48,8 +48,50 @@ numberOfQuestions.forEach((num) => {
         n.style.backgroundColor = "hsla(180, 100%, 89%, 0.7)";
       });
       num.style.backgroundColor = "hsl(231, 77%, 76%)";
-    }
 
-    const howMany = parseInt(e.target.textContent);
+      // change numbers of question
+      howMany = parseInt(e.target.textContent);
+    }
   });
 });
+
+const startBtn = document.querySelector(".start_btn");
+
+const initialQuizContainer = document.querySelector(".Initial_quiz_container");
+const questionContainer = document.querySelector(".question_container");
+
+const questionTag = document.querySelector(".question");
+
+startBtn.addEventListener("click", () => {
+  console.log(userChooseCategory);
+  console.log(howMany);
+
+  if (!userChooseCategory || !howMany) {
+    alert("select category and numbers of questions first !");
+    return;
+  }
+
+  initialQuizContainer.style.display = "none";
+  questionContainer.style.display = "flex";
+
+  quizStart(userChooseCategory, howMany);
+});
+
+function quizStart(cat, num) {
+  const arrCopy = [...cat.questions];
+
+  for (let i = arrCopy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arrCopy[i], arrCopy[j]] = [arrCopy[j], arrCopy[i]];
+  }
+
+  // console.log("shuffled : ", arrCopy);
+
+  const currentQ = arrCopy.slice(0, num);
+
+  console.log(currentQ);
+
+  const q = currentQ[0];
+  console.log(q);
+  questionTag.textContent = q.quest;
+}
