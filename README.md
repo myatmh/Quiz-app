@@ -1,5 +1,4 @@
 # Quiz App
-## Documentation
 
 This app give me a lot of stuck to enter more advance javascript like concepts,logic and thinking
 
