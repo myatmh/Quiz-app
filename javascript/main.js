@@ -9,6 +9,9 @@ let selectedQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 
+let timeLeft = 15;
+let timerId = null;
+
 //Change HTML category button NodeList to real Array
 const categoryChoiceBtn = new Array(
   ...document.querySelectorAll(".category_btn")
@@ -129,30 +132,35 @@ const renderQuestion = () => {
     nextBtn.disabled = true;
 
     answerBtn.addEventListener("click", () => {
-      // const selectedAnswer = answerBtn.getAttribute("data-answer");// use later if need
       const correctAnswer = currentQuestion.correct;
-
-      const allButtons = document.querySelectorAll(".answer_btn");
-
-      allButtons.forEach((btn) => {
-        const answer = btn.getAttribute("data-answer");
-
-        if (answer === correctAnswer) {
-          btn.style.backgroundColor = "#62d6b9ff";
-        } else {
-          btn.style.backgroundColor = "#f7587fff";
-        }
-
-        btn.classList.add("disabled_btn");
-      });
+      // const selectedAnswer = answerBtn.getAttribute("data-answer");// use later if need
+      answerFunction();
 
       if (answerBtn.getAttribute("data-answer") === correctAnswer) {
         score++;
       }
-
-      nextBtn.disabled = false;
+      clearInterval(timerId);
     });
   });
+  startTimer();
+};
+
+const answerFunction = () => {
+  const correctAnswer = currentQuestion.correct;
+  const allButtons = document.querySelectorAll(".answer_btn");
+
+  allButtons.forEach((btn) => {
+    const answer = btn.getAttribute("data-answer");
+
+    if (answer === correctAnswer) {
+      btn.style.backgroundColor = "#62d6b9ff";
+    } else {
+      btn.style.backgroundColor = "#f7587fff";
+    }
+
+    btn.classList.add("disabled_btn");
+  });
+  nextBtn.disabled = false;
 };
 
 nextBtn.addEventListener("click", () => {
@@ -200,3 +208,27 @@ restartBtn.addEventListener("click", () => {
   console.log(userChooseCategory);
   console.log(howMany);
 });
+
+const timerDisplay = document.querySelector(".time");
+
+const startTimer = () => {
+  timeLeft = 15;
+  timerDisplay.textContent = "⏰ Time - " + timeLeft + "s";
+
+  clearInterval(timerId);
+
+  timerId = setInterval(() => {
+    timeLeft--;
+    timerDisplay.textContent = "⏰ Time - " + timeLeft + "s";
+
+    if (timeLeft === 0) {
+      clearInterval(timerId);
+      autoFail();
+    }
+  }, 1000);
+};
+
+const autoFail = () => {
+  const correctAnswer = currentQuestion.correct;
+  answerFunction();
+};
