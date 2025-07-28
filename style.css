@@ -118,7 +118,7 @@ h4 {
   gap: 1rem;
 }
 
-.answers_btn_container button {
+.answer_btn {
   display: inline-flex;
   gap: 0.5rem;
   align-items: center;
@@ -130,7 +130,7 @@ h4 {
   font-weight: 500;
   transition: background-color 0.2s ease-in-out;
 }
-.answers_btn_container button span {
+.answers_btn_container .answer_btn span {
   background-color: hsl(231, 77%, 76%);
   padding: 1rem;
 }
@@ -139,13 +139,21 @@ h4 {
   background-color: hsl(180, 100%, 89%);
 }
 
+.disabled_btn {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .quiz_bottom {
   width: 90%;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
+/* .next_btn {
+  display: none;
+} */
 
 /* Congratulations UI */
 
